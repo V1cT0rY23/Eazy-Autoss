@@ -17,7 +17,7 @@ function App() {
     });
   }, []);
   return (
-    <BrowserRouter>
+    
       <StyledEngineProvider injectFirst>
         <MyProvider>
           <Routes>
@@ -28,7 +28,7 @@ function App() {
           </Routes>
         </MyProvider>
       </StyledEngineProvider>
-    </BrowserRouter>
+    
   );
 }
 
