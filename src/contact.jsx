@@ -7,7 +7,7 @@ const Contacts = () => {
   return (
     <div>
       <Header />
-      <p>HELLO</p>
+      <p>HELLlO</p>
     </div>
   );
 };
