@@ -14,7 +14,7 @@ const Header = () => {
     >
       <Container fluid className="navbar-container">
         <Navbar.Brand  className="logo">
-        <Link to="/" style={{color:"white", textDecoration:"none"}}>Eazy Autos </Link>
+        <Link to="/" style={{color:"white", textDecoration:"none", fontWeight:"bold"}}>Eazy AuTos </Link>
         </Navbar.Brand>
 
         <Navbar.Toggle />
@@ -26,7 +26,7 @@ const Header = () => {
             <Nav.Link><Link className="nav-item" to="/about" style={{color:"#C7C8C9", textDecoration:"none"}}>About Us </Link> </Nav.Link>
             <Nav.Link> <Link className="nav-item" to="/contact" style={{color:"#C7C8C9", textDecoration:"none"}}>Contact Us</Link> </Nav.Link>
             <div className="signup-mobile d-md-none mt-2">
-              <Button variant="outline-light" size="sm">
+              <Button variant="outline-light" size="sm" style={{fontWeight:"bold"}}>
                 Cars
               </Button>
             </div>
@@ -34,7 +34,7 @@ const Header = () => {
         </Navbar.Collapse>
 
         <div className="right-button d-none d-md-flex">
-          <Button variant="outline-light">Cars</Button>
+          <Button variant="outline-light" style={{fontWeight:"bold"}}>Cars</Button>
         </div>
       </Container>
     </Navbar>

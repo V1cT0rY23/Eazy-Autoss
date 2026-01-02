@@ -1,48 +1,45 @@
-body, html {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .logo {
-    flex: 1;
-  }
-  
-  .middle-links {
-    display: flex;
-    justify-content: center;
-    flex: 2;
-    gap: 2rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .right-button {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
 
-  .signup-mobile {
-    display: flex;
-    justify-content: center;
-  }
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .nav-item {
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    color: #C7C8C9; 
-  }
-  
-  .nav-item:hover {
-    color: #ffffff;
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
-  }
-  
- 
-  
+.logo {
+  flex: 1;
+}
+
+.middle-links {
+  display: flex;
+  justify-content: center;
+  flex: 2;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.right-button {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.signup-mobile {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  color: #c7c8c9;
+}
+
+.nav-item:hover {
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
