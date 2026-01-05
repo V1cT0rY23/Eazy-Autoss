@@ -1,0 +1,20 @@
+.product-tabs {
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 40px;
+  display: flex;
+  gap: 10px;
+}
+
+.tab {
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 30px;
+  color: #000;
+  font-weight: 500;
+}
+
+.tab.active {
+  background: #0f1e24;
+  color: #fff;
+}
