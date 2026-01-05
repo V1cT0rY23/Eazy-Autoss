@@ -21,7 +21,7 @@ const cars = [
     model: "Turismo M4",
     mileage: "9,000 miles",
     vin: "NMT123JKZ767944",
-    image: "f2_car.jpg",
+    image: "/f2_car.jpg",
   },
   {
     name: "Audi A1",
@@ -31,7 +31,7 @@ const cars = [
     model: "A1 Hatchback",
     mileage: "10,000 miles",
     vin: "HKL623DFG735667",
-    image: "f2_car.jpg",
+    image: "/f2_car.jpg",
   },
 ];
 

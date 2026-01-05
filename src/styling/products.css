@@ -1,20 +1,39 @@
-.product-tabs {
-  background: #ffffff;
-  padding: 6px;
-  border-radius: 40px;
-  display: flex;
-  gap: 10px;
+.products-page {
+  background-color: #f8f9fa;
 }
 
-.tab {
-  text-decoration: none;
-  padding: 10px 24px;
-  border-radius: 30px;
-  color: #000;
+.product-tabs .nav-link {
+  padding: 0.6rem 1.2rem;
+  border-radius: 90px;
   font-weight: 500;
+  color: #495057;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  transition: all 0.25s ease;
 }
 
-.tab.active {
-  background: #0f1e24;
-  color: #fff;
+
+.product-tabs .nav-link.active {
+  background-color: #0d6efd;
+  color: #ffffff;
+  border-color: #0d6efd;
+}
+
+
+.product-tabs .nav-link:hover {
+  background-color: #e9ecef;
+}
+
+
+@media (max-width: 576px) {
+  .product-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .product-tabs .nav-link {
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
 }

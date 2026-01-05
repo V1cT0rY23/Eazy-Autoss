@@ -1,45 +1,84 @@
+import { useState } from "react";
 import Featured from "./featured";
 import "../styling/products.css";
-import { NavLink, Outlet } from "react-router-dom";
+
+import Cars from "./productspages/car";
+import Suv from "./productspages/suv";
+import Trucks from "./productspages/trucks";
+import Vans from "./productspages/vans";
 
 const Products = () => {
+  const [activeTab, setActiveTab] = useState("cars");
+
+  // Render content based on active tab
+  const renderTab = () => {
+    switch (activeTab) {
+      case "cars":
+        return <Cars />;
+      case "suv":
+        return <Suv />;
+      case "trucks":
+        return <Trucks />;
+      case "vans":
+        return <Vans />;
+      default:
+        return <Cars />;
+    }
+  };
+
   return (
-    <div className="d-flex flex-column gap--30 px-0 px-md-0">
-      <Featured />
+    <section className="products-page">
+      <div className="container-fluid px-0">
+        <Featured />
+      </div>
 
-      <div className="d-flex justify-content-center my-4">
-        <div className="product-tabs">
-          <NavLink
-            to="/products/cars"
-            className={({ isActive }) => (isActive ? "tab active" : "tab")}
-          >
-            Cars
-          </NavLink>
+      <div className="container my-4">
+        <div className="row justify-content-center">
+          <div className="col-12 col-lg-10">
+            <ul className="nav nav-pills justify-content-center gap-2 product-tabs">
+              <li className="nav-item">
+                <button
+                  className={`nav-link ${activeTab === "cars" ? "active" : ""}`}
+                  onClick={() => setActiveTab("cars")}
+                >
+                  Cars
+                </button>
+              </li>
 
-          <NavLink
-            to="/products/suv"
-            className={({ isActive }) => (isActive ? "tab active" : "tab")}
-          >
-            SUV / MUV
-          </NavLink>
+              <li className="nav-item">
+                <button
+                  className={`nav-link ${activeTab === "suv" ? "active" : ""}`}
+                  onClick={() => setActiveTab("suv")}
+                >
+                  SUV / MUV
+                </button>
+              </li>
 
-          <NavLink
-            to="/products/trucks"
-            className={({ isActive }) => (isActive ? "tab active" : "tab")}
-          >
-            Trucks
-          </NavLink>
+              <li className="nav-item">
+                <button
+                  className={`nav-link ${activeTab === "trucks" ? "active" : ""}`}
+                  onClick={() => setActiveTab("trucks")}
+                >
+                  Trucks
+                </button>
+              </li>
 
-          <NavLink
-            to="/products/vans"
-            className={({ isActive }) => (isActive ? "tab active" : "tab")}
-          >
-            Vans
-          </NavLink>
+              <li className="nav-item">
+                <button
+                  className={`nav-link ${activeTab === "vans" ? "active" : ""}`}
+                  onClick={() => setActiveTab("vans")}
+                >
+                  Vans
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <Outlet />
-    </div>
+
+      {/* Products Content */}
+      <div className="container pb-5">{renderTab()}</div>
+    </section>
   );
 };
 
