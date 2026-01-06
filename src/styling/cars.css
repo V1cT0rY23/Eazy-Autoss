@@ -1,0 +1,129 @@
+.car-card {
+  background-color: #fffdf9;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+/* Badge */
+.car-type-badge {
+  background-color: gray;
+  color: #212529;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+/* Supercharge */
+.supercharge {
+  font-size: 0.85rem;
+  color: #212529;
+}
+
+.supercharge svg {
+  color: #ff3b30;
+  margin-right: 4px;
+}
+
+/* Specs */
+.specs span {
+  font-size: 0.85rem;
+}
+
+/* Reserve button */
+.reserve-btn {
+  background-color: #cfe7fb;
+  color: #212529;
+  padding: 0.75rem;
+  font-weight: 500;
+  border: none;
+}
+
+.reserve-btn:hover {
+  background-color: #b6dbf7;
+}
+/* Bigger cards on desktop */
+@media (min-width: 992px) {
+  .car-card {
+    padding-top: 0.5rem;
+    transform: scale(1.05); /* subtle size increase */
+  }
+}
+.car-card .card-body {
+  padding: 1.25rem;
+}
+
+@media (min-width: 992px) {
+  .car-card .card-body {
+    padding: 1.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .car-type-badge {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .specs span {
+    font-size: 0.9rem;
+  }
+
+  .reserve-btn {
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+}
+.reserve-btn {
+  position: relative;
+  overflow: hidden;
+  background-color: #cfe7fb;
+  color: #212529;
+  font-weight: 500;
+  height: 48px;
+  transition: background-color 0.3s ease;
+}
+
+/* Text layers */
+.reserve-btn span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Default */
+.reserve-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reserve-price {
+  opacity: 0;
+  transform: translateY(100%);
+  font-weight: 600;
+}
+
+/* Hover effect */
+.reserve-btn:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.reserve-btn:hover .reserve-text {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.reserve-btn:hover .reserve-price {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reserve-btn:hover {
+  background-color: gray;
+  transform: scale(1.02);
+}
+.reserve-btn:focus-visible {
+  outline: 2px solid gray;
+  outline-offset: 2px;
+} 
