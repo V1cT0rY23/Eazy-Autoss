@@ -2,8 +2,7 @@ import { FaGasPump, FaCogs, FaTachometerAlt, FaBolt } from "react-icons/fa";
 import ".././styling/cars.css";
 
 const CarCard = ({ car }) => {
-
-    const WHATSAPP_NUMBER = "2348166851222";
+  const WHATSAPP_NUMBER = "2348166851222";
 
   const handleReserve = () => {
     const message = `
@@ -22,7 +21,6 @@ I am interested in reserving this car.
     window.open(url, "_blank");
   };
 
-    
   return (
     <div className="col-12 col-md-6 col-lg-3 mb-4">
       <div className="card car-card h-100 border-0">
@@ -56,7 +54,10 @@ I am interested in reserving this car.
 
         {/* Footer */}
         <div className="card-footer p-0">
-          <button className="reserve-btn w-100 rounded-0" onClick={handleReserve}>
+          <button
+            className="reserve-btn w-100 rounded-0"
+            onClick={handleReserve}
+          >
             <span className="reserve-text">Reserve</span>
             <span className="reserve-price">{car.price}</span>
           </button>

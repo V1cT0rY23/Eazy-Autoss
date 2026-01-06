@@ -1,61 +1,187 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import ReserveSummaryModal from "../components/reservesummary";
+import "../styling/booking.css";
+import { carData } from "../data/cardata.js";
 
-const BookingForm = ({ selectedCar }) => {
-  const WHATSAPP_NUMBER = "2348166851222";
+const WHATSAPP_NUMBER = "2348166851222";
 
-  const [form, setForm] = useState({
-    pickup: "",
-    dropoff: "",
+const BookingFlow = () => {
+  const [formData, setFormData] = useState({
+    category: "Car",
+    carName: "",
+    pickupLocation: "",
+    dropoffLocation: "",
     pickupDate: "",
     dropoffDate: "",
   });
 
-  const handleSubmit = () => {
-    const message = `
-🚗 *New Booking Request*
+  const [showSummary, setShowSummary] = useState(false);
 
-Car: ${selectedCar.name}
-Price: ${selectedCar.price}
+  // ✅ cars that match selected category
+  const filteredCars = useMemo(() => {
+    return carData.filter((c) => c.category === formData.category);
+  }, [formData.category]);
 
-📍 Pick-up: ${form.pickup}
-📍 Drop-off: ${form.dropoff}
+  // ✅ selected car (search inside filtered list)
+  const selectedCar = useMemo(() => {
+    return filteredCars.find((c) => c.name === formData.carName);
+  }, [filteredCars, formData.carName]);
 
-📅 Pick-up Date: ${form.pickupDate}
-📅 Drop-off Date: ${form.dropoffDate}
-    `;
+  // ✅ handle changes (reset car when category changes)
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-      message
-    )}`;
+    if (name === "category") {
+      setFormData((prev) => ({
+        ...prev,
+        category: value,
+        carName: "", // reset the car selection
+      }));
+      return;
+    }
 
-    window.open(url, "_blank");
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const openSummary = () => setShowSummary(true);
+
+  const confirmReserve = () => {
+    const message = `🚗 *Car Reservation*
+
+*Vehicle Category:* ${formData.category}
+*Car:* ${selectedCar?.name || "-"}
+
+*Price:* ${selectedCar?.price || "-"}
+*Fuel:* ${selectedCar?.fuel || "-"}
+*Transmission:* ${selectedCar?.transmission || "-"}
+*Mileage:* ${selectedCar?.mileage || "-"}
+
+*Pick-up Location:* ${formData.pickupLocation}
+*Drop-off Location:* ${formData.dropoffLocation}
+*Pick-up Date:* ${formData.pickupDate}
+*Drop-off Date:* ${formData.dropoffDate}
+
+Hello, I want to reserve. Please confirm availability and next steps.`;
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    setShowSummary(false);
   };
 
   return (
-    <div className="booking-box">
-      <input
-        placeholder="Pick-up location"
-        onChange={(e) => setForm({ ...form, pickup: e.target.value })}
-      />
+    <>
+      <div className="container py-4">
+        <div className="booking-box p-4 p-lg-5 shadow-sm rounded-4">
+          <h3 className="mb-4 fw-bold">Book a car</h3>
 
-      <input
-        placeholder="Drop-off location"
-        onChange={(e) => setForm({ ...form, dropoff: e.target.value })}
-      />
+          <div className="row g-3">
+            <div className="col-md-4">
+              <label className="form-label fw-semibold">Select Vehicle Category *</label>
+              <select
+                className="form-select"
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+              >
+                <option value="Car">Car</option>
+                <option value="SUV">SUV</option>
+                <option value="Truck">Truck</option>
+                <option value="Van">Van</option>
+              </select>
+            </div>
 
-      <input
-        type="date"
-        onChange={(e) => setForm({ ...form, pickupDate: e.target.value })}
-      />
+            {/* ✅ Car dropdown now depends on category */}
+            <div className="col-md-4">
+              <label className="form-label fw-semibold">Select Your Car *</label>
+              <select
+                className="form-select"
+                name="carName"
+                value={formData.carName}
+                onChange={handleChange}
+                disabled={filteredCars.length === 0}
+              >
+                <option value="">
+                  {filteredCars.length ? "Select a car" : "No cars for this category"}
+                </option>
 
-      <input
-        type="date"
-        onChange={(e) => setForm({ ...form, dropoffDate: e.target.value })}
-      />
+                {filteredCars.map((car) => (
+                  <option key={car.name} value={car.name}>
+                    {car.name}
+                  </option>
+                ))}
+              </select>
 
-      <button onClick={handleSubmit}>Search / Reserve</button>
-    </div>
+              <div className="form-text">
+                {selectedCar ? `Price: ${selectedCar.price}` : "Choose a car to see price"}
+              </div>
+            </div>
+
+            <div className="col-md-4">
+              <label className="form-label fw-semibold">Pick-up Location *</label>
+              <input
+                className="form-control"
+                name="pickupLocation"
+                placeholder="Select pick up location"
+                value={formData.pickupLocation}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-md-4">
+              <label className="form-label fw-semibold">Drop-off Location *</label>
+              <input
+                className="form-control"
+                name="dropoffLocation"
+                placeholder="Select drop off location"
+                value={formData.dropoffLocation}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-md-4">
+              <label className="form-label fw-semibold">Pick-up Date *</label>
+              <input
+                type="date"
+                className="form-control"
+                name="pickupDate"
+                value={formData.pickupDate}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-md-4">
+              <label className="form-label fw-semibold">Drop-off Date *</label>
+              <input
+                type="date"
+                className="form-control"
+                name="dropoffDate"
+                value={formData.dropoffDate}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-12 mt-3">
+              <button
+                className="btn btn-dark px-5 py-2"
+                onClick={openSummary}
+                disabled={!formData.carName}
+              >
+                Reserve
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ReserveSummaryModal
+        show={showSummary}
+        onClose={() => setShowSummary(false)}
+        formData={formData}
+        selectedCar={selectedCar}
+        onConfirm={confirmReserve}
+      />
+    </>
   );
 };
 
-export default BookingForm;
+export default BookingFlow;

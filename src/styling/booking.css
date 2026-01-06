@@ -1,0 +1,200 @@
+/* Form box */
+.booking-box {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Modal shell */
+.booking-modal {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.booking-modal-header {
+  background: #111;
+  padding: 18px 22px;
+}
+
+.booking-alert {
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Left panel like list */
+.booking-panel {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.booking-panel-title {
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.booking-item {
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.12);
+}
+
+.booking-item:last-child {
+  border-bottom: none;
+}
+
+.booking-item-label {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.55);
+  margin-bottom: 2px;
+}
+
+.booking-item-value {
+  font-weight: 700;
+  color: #111;
+}
+
+/* Right big card area */
+.booking-right {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.booking-car-title {
+  line-height: 1.1;
+}
+
+.booking-price-badge {
+  background: #2b6cff;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+/* Placeholder image area */
+.booking-image-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.booking-image-placeholder {
+  width: 100%;
+  min-height: 260px;
+  border-radius: 14px;
+  border: 1px dashed rgba(0,0,0,0.18);
+  background: rgba(0,0,0,0.02);
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.booking-note {
+  background: rgba(17, 17, 17, 0.04);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: rgba(0,0,0,0.75);
+  font-size: 14px;
+}
+
+.booking-modal-footer {
+  background: rgba(0,0,0,0.02);
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.booking-modal {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.booking-modal-header {
+  background: #111;
+  padding: 18px 22px;
+}
+
+.booking-panel {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.booking-panel-title {
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.booking-item {
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.12);
+}
+.booking-item:last-child { border-bottom: none; }
+
+.booking-item-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.55);
+}
+
+.booking-item-value {
+  font-weight: 700;
+  color: #111;
+}
+
+.booking-right {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.booking-price-badge {
+  background: #2b6cff;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+.booking-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-car-img {
+  max-height: 280px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.booking-image-placeholder {
+  width: 100%;
+  min-height: 280px;
+  border-radius: 14px;
+  border: 1px dashed rgba(0,0,0,0.18);
+  background: rgba(0,0,0,0.02);
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.booking-note {
+  background: rgba(17, 17, 17, 0.04);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: rgba(0,0,0,0.75);
+}
+
+.booking-modal-footer {
+  background: rgba(0,0,0,0.02);
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+

@@ -1,6 +1,7 @@
 import Header from "./header";
 import FrontPage from "./components/frontpage";
 import Products from "./components/products";
+import BookingForm from "./components/bookingform";
 import "./styling/home.css"
 
 
@@ -10,6 +11,7 @@ const Home = () => {
       <Header />
       <FrontPage />
       <Products />
+      <BookingForm />
     </div>
   );
 };
